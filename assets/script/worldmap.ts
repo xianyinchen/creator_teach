@@ -16,6 +16,9 @@ export default class CMap extends cc.Component {
     @property(cc.TiledMap)
     worldMap: cc.TiledMap = null;
 
+    @property(cc.Node)
+    worldPlayer: cc.Node = null;
+
     @property
     PointsName: string = 'points';
 
@@ -81,7 +84,11 @@ export default class CMap extends cc.Component {
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {}
+    onLoad () {
+        cc.director.getCollisionManager().enabled = true;
+        cc.director.getCollisionManager().enabledDebugDraw = true;
+        cc.director.getCollisionManager().enabledDrawBoundingBox = true;
+    }
 
     start() {
         var _layerFloor: cc.TiledLayer = this.worldMap.getLayer(this.floorLayerName);
@@ -99,11 +106,10 @@ export default class CMap extends cc.Component {
         // var sni = this.worldMap.getObjectGroup(this.finishName);
         var snailBlocks = this.worldMap.getObjectGroup(this.snailBlockName);
         var finishPoint = finish.getObject('finishPoint');
-        var finishNode = finishPoint.sgNode;
-
+    
         var castle_finish = cc.instantiate(this.castle_finish);
-        castle_finish.x = finishNode.x;
-        castle_finish.y = finishNode.y + 200;
+        castle_finish.x = finishPoint.x;
+        castle_finish.y = finishPoint.y + 200;
         this.node.addChild(castle_finish);
 
         if (!startPoint || !endPoint)
@@ -112,12 +118,11 @@ export default class CMap extends cc.Component {
         for (var i = 1; i < 3; i++) {
             var snailBlockName = 'snailBlock' + i;
             var snailBlock = snailBlocks.getObject(snailBlockName);
-            var snailBlockSgNode = snailBlock.sgNode;
             var snailBlockNode = cc.instantiate(this.snailBlockPre);
-            snailBlockNode.width = snailBlockSgNode.width;
-            snailBlockNode.height = snailBlockSgNode.height;
-            snailBlockNode.x = snailBlockSgNode.x;
-            snailBlockNode.y = snailBlockSgNode.y - snailBlockSgNode.height;
+            snailBlockNode.width = snailBlock.width;
+            snailBlockNode.height = snailBlock.height;
+            snailBlockNode.x = snailBlock.x;
+            snailBlockNode.y = snailBlock.y - snailBlock.height;
             snailBlockNode.addComponent(cc.BoxCollider);
             snailBlockNode.getComponent(cc.BoxCollider).size = cc.size(snailBlockNode.width, snailBlockNode.height);
             snailBlockNode.getComponent(cc.BoxCollider).offset = new cc.Vec2(snailBlockNode.width / 2, -snailBlockNode.height / 2);
@@ -129,33 +134,31 @@ export default class CMap extends cc.Component {
         for (var i = 1; i < 8; i++) {
             var waterName = 'water' + i;
             var waterBlock = waters.getObject(waterName);
-            var watersgNode = waterBlock.sgNode;
             // var waterNode = new cc.Node();
             var waterNode = cc.instantiate(this.ColliderPreName);
             waterNode.group = 'water';
             // waterNode.setAnchorPoint(0,0);
-            waterNode.width = watersgNode.width;
-            waterNode.height = watersgNode.height;
-            waterNode.x = watersgNode.x;
-            waterNode.y = watersgNode.y - watersgNode.height;
+            waterNode.width = waterBlock.width;
+            waterNode.height = waterBlock.height;
+            waterNode.x = waterBlock.x;
+            waterNode.y = waterBlock.y - waterBlock.height;
             waterNode.addComponent(cc.BoxCollider);
             waterNode.getComponent(cc.BoxCollider).size = cc.size(waterNode.width, waterNode.height);
             waterNode.getComponent(cc.BoxCollider).offset = new cc.Vec2(waterNode.width / 2, -waterNode.height / 2);
-            console.log('watersgNode.height: ' + watersgNode.height);
+            console.log('waterBlock.height: ' + waterBlock.height);
             waterNode.getComponent(cc.BoxCollider).tag = 6;
             this.node.addChild(waterNode);
         }
         for (var i = 1; i < 17; i++) {
             var enemyName = 'enemy' + i;
             var enemyBlock = enemies.getObject(enemyName);
-            var enemyNode = enemyBlock.sgNode;
             if (5 == i || 9 == i) {
                 var enemy = cc.instantiate(this.enemySnail);
             }
             else
                 var enemy = cc.instantiate(this.enemyBeetle);
-            enemy.x = enemyNode.x;
-            enemy.y = enemyNode.y;
+            enemy.x = enemyBlock.x;
+            enemy.y = enemyBlock.y;
             this.node.addChild(enemy);
             // console.log('enemy Name'+enemy._name);
 
@@ -163,23 +166,21 @@ export default class CMap extends cc.Component {
         for (var i = 1; i < 30; i++) {
             var destroyable_blockName = 'destroyable_blocks' + i;
             var destroyable_block = destroyable_blocks.getObject(destroyable_blockName);
-            var destroyable_blockNode = destroyable_block.sgNode;
             var breakableWall = cc.instantiate(this.breakableWallPre);
-            breakableWall.x = destroyable_blockNode.x;
+            breakableWall.x = destroyable_block.x;
             // breakableWall.height = destroyable_blockNode.height;
-            breakableWall.y = destroyable_blockNode.y;
+            breakableWall.y = destroyable_block.y;
             this.node.addChild(breakableWall);
         }
         for (var i = 1; i < 7; i++) {
             var bonus_blockName = 'bonus_block' + i;
             var bonus_block = bonus_blocks.getObject(bonus_blockName);
-            var bonus_blockNode = bonus_block.sgNode;
             var bonusWall: cc.Node = cc.instantiate(this.bonusWallPre);
             // console.log('bonusWallPre Name: ' + bonusWall.name);
             bonusWall.zIndex = 99;
-            bonusWall.x = bonus_blockNode.x;
-            // bonusWall.height = bonus_blockNode.height;
-            bonusWall.y = bonus_blockNode.y;
+            bonusWall.x = bonus_block.x;
+            // bonusWall.height = bonus_block.height;
+            bonusWall.y = bonus_block.y;
             if (bonus_block.name == 'bonus_block4') {
                 bonusWall.getComponent(cc.BoxCollider).tag = 7;
             }
@@ -188,34 +189,33 @@ export default class CMap extends cc.Component {
         for (var i = 1; i < 40; i++) {
             var coinName = 'coin' + i;
             var coinPoint = coinPoints.getObject(coinName);
-            var coinNode = coinPoint.sgNode;
             var coin = cc.instantiate(this.CoinsPre);
-            coin.x = coinNode.x;
+            coin.x = coinPoint.x;
             // coin.height = coinNode.height;
-            coin.y = coinNode.y;
+            coin.y = coinPoint.y;
             this.node.addChild(coin);
         }
         for (var i = 1; i < 31; i++) {
             // this.collisionName[i] = i.toString();
             var collisionName = i.toString();
             var collider = collisionPoints.getObject(collisionName);
-            var collisionNode = collider.sgNode;
             var node = cc.instantiate(this.ColliderPreName);
             // var node = new cc.Node();
             node.setAnchorPoint(0.5, 0.5);
-            node.x = collisionNode.x;
-            node.height = collisionNode.height;
-            node.y = collisionNode.y - collisionNode.height;
-            node.width = collisionNode.width;
+            node.x = collider.x;
+            node.height = collider.height;
+            node.y = collider.y - collider.height;
+            node.width = collider.width;
             node.addComponent(cc.BoxCollider);
-            node.getComponent(cc.BoxCollider).size = cc.size(collisionNode.width, collisionNode.height);
-            node.getComponent(cc.BoxCollider).offset = cc.v2(collisionNode.width / 2, collisionNode.height / 2);
+            node.getComponent(cc.BoxCollider).size = cc.size(collider.width, collider.height);
+            node.getComponent(cc.BoxCollider).offset = cc.v2(collider.width / 2, collider.height / 2);
             node.getComponent(cc.BoxCollider).tag = 5;
             this.node.addChild(node);
         }
         var rabbit = startPoint.getObject('rabbit');
+
         // console.log("rabbit: " + rabbit);
-        var startPos = cc.p(rabbit.sgNode.x, rabbit.sgNode.y);
+        //this.worldPlayer.position = new cc.Vec2(rabbit.x, rabbit.y);
     }
 
     // update (dt) {}

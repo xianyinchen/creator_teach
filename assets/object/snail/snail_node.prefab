@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "player",
+    "_name": "snail",
     "_objFlags": 0,
     "_parent": null,
     "_children": [],
@@ -45,8 +45,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 82,
-      "height": 100
+      "width": 62,
+      "height": 51
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -55,8 +55,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 75.2,
-      "y": 181,
+      "x": 345,
+      "y": 159,
       "z": 0
     },
     "_scale": {
@@ -76,7 +76,7 @@
     },
     "_skewX": 0,
     "_skewY": 0,
-    "groupIndex": 1,
+    "groupIndex": 5,
     "_id": ""
   },
   {
@@ -90,7 +90,7 @@
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "b1334959-77a3-4574-95ef-50803db2f5e0"
+      "__uuid__": "aaba7764-92b5-479f-90c8-974e4d9a3624"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -105,7 +105,7 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": {
-      "__uuid__": "63eb1a99-3a34-4e40-bdc3-f09302d45cc6"
+      "__uuid__": "5fc256af-971a-4986-aa19-83036e2d4f43"
     },
     "_id": ""
   },
@@ -118,115 +118,66 @@
     },
     "_enabled": true,
     "_defaultClip": {
-      "__uuid__": "04c53391-7a36-4267-b7f0-596a644861b4"
+      "__uuid__": "a813be53-37c3-4bfc-b084-9809d964951d"
     },
     "_clips": [
       {
-        "__uuid__": "04c53391-7a36-4267-b7f0-596a644861b4"
+        "__uuid__": "a813be53-37c3-4bfc-b084-9809d964951d"
       },
       {
-        "__uuid__": "766c94a6-03ff-47a7-9470-62e124fe3fa1"
-      },
-      {
-        "__uuid__": "f0ee03ce-7867-4838-a381-800f70efa578"
-      },
-      {
-        "__uuid__": "deb66f55-f8ca-4db2-bc4e-ca33e6cb98ce"
-      },
-      {
-        "__uuid__": "b240e23c-3dfb-4bff-8328-424f697d80e3"
-      },
-      {
-        "__uuid__": "bf5e4641-c8f6-442c-aa1b-8ad807548c76"
+        "__uuid__": "67cadff7-b4ed-451d-be62-103f18942d26"
       }
     ],
     "playOnLoad": true,
     "_id": ""
   },
   {
-    "__type__": "cc.PolygonCollider",
+    "__type__": "cc.BoxCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "tag": 0,
+    "tag": 4,
     "_offset": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 50
+      "y": 25
     },
-    "points": [
-      {
-        "__type__": "cc.Vec2",
-        "x": -35.7,
-        "y": -50
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 41.4,
-        "y": -50
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 40.8,
-        "y": -12.7
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 24.4,
-        "y": -0.2
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 26.3,
-        "y": 47.8
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -16,
-        "y": 46.6
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -39.3,
-        "y": 16.3
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -13.7,
-        "y": -2.3
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -28.4,
-        "y": -17.4
-      }
-    ],
+    "_size": {
+      "__type__": "cc.Size",
+      "width": 62,
+      "height": 51
+    },
     "_id": ""
   },
   {
-    "__type__": "326b8b6lOFHWLzFPac1lrNy",
+    "__type__": "552fcFmhY1FKY10JGh/6SMe",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "anim": {
-      "__id__": 3
-    },
-    "maxSpeedV2": {
+    "speed": {
       "__type__": "cc.Vec2",
-      "x": 200,
+      "x": 40,
+      "y": 0
+    },
+    "maxSpeed": {
+      "__type__": "cc.Vec2",
+      "x": 2000,
       "y": 2000
     },
-    "dieAudio": null,
-    "jumpAudio": null,
-    "player_decrease_Audio": null,
-    "hit_block_Audio": null,
-    "jumpSpeed": 700,
+    "scaleX": 1,
+    "hurtNum": 0,
+    "gravity": -1000,
+    "isAlive": true,
+    "canMove": true,
+    "dieAudio": {
+      "__uuid__": "6a2d22ca-e6d1-4207-8452-2ba2e5a43495"
+    },
     "_id": ""
   },
   {
@@ -235,9 +186,9 @@
       "__id__": 1
     },
     "asset": {
-      "__uuid__": "33658c29-2167-43ae-be5c-77511d1cf205"
+      "__uuid__": "667a14a5-9f66-46e5-95c9-46165fc33e2c"
     },
-    "fileId": "3cr+opwnpDkZc0wSqjTuWZ",
+    "fileId": "09V8dem+lImJqI35qig8NH",
     "sync": false
   }
 ]

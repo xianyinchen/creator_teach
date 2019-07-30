@@ -8,32 +8,32 @@
 //  - [Chinese] https://docs.cocos.com/creator/manual/zh/scripting/life-cycle-callbacks.html
 //  - [English] http://www.cocos2d-x.org/docs/creator/manual/en/scripting/life-cycle-callbacks.html
 
-const {ccclass, property} = cc._decorator;
+const { ccclass, property } = cc._decorator;
 
 @ccclass
-export default class CWorld extends cc.Component {
+export default class NewClass extends cc.Component {
 
-    @property()
-    FallG_Num: number = 0;    
+    @property({type: cc.AudioClip})
+    high_score_Audio: cc.AudioClip = null;
 
-    @property() 
-    WalkG_Num: number = 0;
-
-    static G: number = 0;    
-    static WalkG: number = 0; 
-    static GiveCoin: number = 0;
-    static AddSpeed: number = 1;
-    static IsPress: boolean = false;
-    
     // LIFE-CYCLE CALLBACKS:
 
-    onLoad () {
-        CWorld.G = this.FallG_Num;    
-        CWorld.WalkG = this.WalkG_Num; 
+    // use this for initialization
+
+    onLoad() {
+        cc.director.getCollisionManager().enabled = true;
     }
 
-    start () {
-        cc.director.getCollisionManager().enabled = true;
+    onCollisionEnter(other, self) {
+        this.scheduleOnce(function () {
+            //cc.audioEngine.play(this.high_score_Audio, false, Global.volume);
+        }, 2);
+        cc.director.loadScene('LevelMenu');
+        //Global.level2Open = true;
+    }
+
+    start() {
+
     }
 
     // update (dt) {}
