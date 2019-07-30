@@ -21,15 +21,21 @@ export default class NewClass extends cc.Component {
     // use this for initialization
 
     onLoad() {
-        cc.director.getCollisionManager().enabled = true;
+
     }
 
     onCollisionEnter(other, self) {
         this.scheduleOnce(function () {
-            //cc.audioEngine.play(this.high_score_Audio, false, Global.volume);
+            cc.audioEngine.play(this.high_score_Audio, false, 1);
         }, 2);
-        cc.director.loadScene('LevelMenu');
+        //cc.director.loadScene('LevelMenu');
         //Global.level2Open = true;
+
+        this.scheduleOnce(function () {
+            // 这里的 this 指向 component
+            // cc.find('over').active = true;
+            cc.game.restart();
+        }, 2);        
     }
 
     start() {

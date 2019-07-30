@@ -45,8 +45,6 @@ export default class NewClass extends cc.Component {
     onLoad() {
         this.touchingNumber = 0;
         this.node.scaleX = 1;
-        cc.director.getCollisionManager().enabled = true;
-        // cc.director.getCollisionManager().enabledDebugDraw = true;
         this.anim = this.getComponent(cc.Animation);
     }
 

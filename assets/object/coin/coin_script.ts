@@ -46,8 +46,8 @@ export default class NewClass extends cc.Component {
     setJumpAction() {
         var fadeIn = cc.fadeIn(0);
         var fadeOut = cc.fadeOut(1);
-        var jumpUp = cc.moveBy(this.jumpDuring, cc.p(0, this.jumpHeight)).easing(cc.easeCubicActionOut());// 先快后慢
-        var jumpDown = cc.moveBy(this.jumpDuring, cc.p(0, -this.jumpHeight)).easing(cc.easeCubicActionIn());//缓动 先慢后快
+        var jumpUp = cc.moveBy(this.jumpDuring, new cc.Vec2(0, this.jumpHeight)).easing(cc.easeCubicActionOut());// 先快后慢
+        var jumpDown = cc.moveBy(this.jumpDuring, new cc.Vec2(0, -this.jumpHeight)).easing(cc.easeCubicActionIn());//缓动 先慢后快
         // var callback = cc.callFunc(this.playJumpSound,this);
         // return cc.sequence(callback,fadeIn,jumpUp, jumpDown,fadeOut);
         return cc.sequence(fadeIn, jumpUp, jumpDown, fadeOut);

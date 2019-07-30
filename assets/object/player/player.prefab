@@ -13,7 +13,7 @@
   {
     "__type__": "cc.Node",
     "_name": "player",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "_parent": null,
     "_children": [],
     "_active": true,
@@ -45,8 +45,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 82,
-      "height": 100
+      "width": 49.2,
+      "height": 60
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -55,8 +55,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 75.2,
-      "y": 181,
+      "x": 87,
+      "y": 197,
       "z": 0
     },
     "_scale": {
@@ -93,7 +93,7 @@
       "__uuid__": "b1334959-77a3-4574-95ef-50803db2f5e0"
     },
     "_type": 0,
-    "_sizeMode": 1,
+    "_sizeMode": 0,
     "_fillType": 0,
     "_fillCenter": {
       "__type__": "cc.Vec2",
@@ -144,69 +144,6 @@
     "_id": ""
   },
   {
-    "__type__": "cc.PolygonCollider",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "tag": 0,
-    "_offset": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 50
-    },
-    "points": [
-      {
-        "__type__": "cc.Vec2",
-        "x": -35.7,
-        "y": -50
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 41.4,
-        "y": -50
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 40.8,
-        "y": -12.7
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 24.4,
-        "y": -0.2
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": 26.3,
-        "y": 47.8
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -16,
-        "y": 46.6
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -39.3,
-        "y": 16.3
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -13.7,
-        "y": -2.3
-      },
-      {
-        "__type__": "cc.Vec2",
-        "x": -28.4,
-        "y": -17.4
-      }
-    ],
-    "_id": ""
-  },
-  {
     "__type__": "326b8b6lOFHWLzFPac1lrNy",
     "_name": "",
     "_objFlags": 0,
@@ -227,6 +164,44 @@
     "player_decrease_Audio": null,
     "hit_block_Audio": null,
     "jumpSpeed": 700,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PolygonCollider",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "tag": 0,
+    "_offset": {
+      "__type__": "cc.Vec2",
+      "x": 0,
+      "y": 0
+    },
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -25,
+        "y": 0
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 25,
+        "y": 0
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 25,
+        "y": 60
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -25,
+        "y": 60
+      }
+    ],
     "_id": ""
   },
   {

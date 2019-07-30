@@ -41,17 +41,9 @@ export default class NewClass extends cc.Component {
 
     onLoad() {
         this.touchingNumber = 0;
-        var collisionManager = cc.director.getCollisionManager();
-        collisionManager.enabled = true;
-        // collisionManager.enabledDebugDraw = true;
-        cc.audioEngine.play(this.mushroom_appear_Audio, false, Global.volume);
+        cc.audioEngine.play(this.mushroom_appear_Audio, false, 1);
         this.jumpAction = this.setJumpAction();
         this.node.runAction(this.jumpAction);
-        // this.scheduleOnce(function ()
-        // {
-        //     // 这里的 this 指向 component
-        //     this.node.removeFromParent();
-        // },3);
     }
 
     start() {
@@ -61,7 +53,7 @@ export default class NewClass extends cc.Component {
     setJumpAction() {
         var fadeIn = cc.fadeIn(0);
         // var fadeOut = cc.fadeOut(1);
-        var jumpUp = cc.moveBy(this.jumpDuring, cc.p(0, this.jumpHeight)).easing(cc.easeCubicActionOut());// 先快后慢
+        var jumpUp = cc.moveBy(this.jumpDuring, new cc.Vec2(0, this.jumpHeight)).easing(cc.easeCubicActionOut());// 先快后慢
         // var moveRight = cc.moveBy( cc.p(10, 0));
         // var callback = cc.callFunc(this.playJumpSound,this);
         // return cc.sequence(callback,fadeIn,jumpUp, jumpDown,fadeOut);

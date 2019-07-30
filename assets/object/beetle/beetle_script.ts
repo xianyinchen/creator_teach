@@ -31,8 +31,6 @@ export default class enemy extends cc.Component {
 
     onLoad() {
         this.node.scaleX = 1;
-        cc.director.getCollisionManager().enabled = true;
-        // cc.director.getCollisionManager().enabledDebugDraw = true;
         this.anim = this.getComponent(cc.Animation);
     }
 

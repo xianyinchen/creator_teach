@@ -27,10 +27,8 @@ export default class NewClass extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        this.node.scaleX = 1;
-        cc.director.getCollisionManager().enabled = true;
-        // cc.director.getCollisionManager().enabledDebugDraw = true;
         this.anim = this.getComponent(cc.Animation);
+        this.node.scaleX = 1;
         this.node.zIndex = 1;
         // this.Score = this.ScoreBar.getComponent('Score');
     }
@@ -61,9 +59,9 @@ export default class NewClass extends cc.Component {
                         //Global.isGotCoin = true;
                         var bonus = cc.instantiate(this.CoinJump);
                     }
-                    var scence = cc.find('Scence');
-                    bonus.position = scence.convertToNodeSpace(cc.p(selfAabb.x + 30, selfAabb.y + 30));
-                    scence.addChild(bonus);
+
+                    bonus.position = this.node.parent.convertToNodeSpace(new cc.Vec2(selfAabb.x + 30, selfAabb.y + 30));
+                    this.node.parent.addChild(bonus);
                     this.isCollisionable = false;
                 }
 

@@ -34,6 +34,8 @@ export default class CWorld extends cc.Component {
 
     start () {
         cc.director.getCollisionManager().enabled = true;
+        cc.director.getCollisionManager().enabledDebugDraw = true;
+        cc.director.getCollisionManager().enabledDrawBoundingBox = true;
     }
 
     // update (dt) {}

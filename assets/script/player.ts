@@ -204,7 +204,6 @@ export default class CPlayer extends cc.Component {
         cc.audioEngine.play(this.dieAudio, false, 1);
         this.anim.play("player_die");
         this._speed.y = this.jumpSpeed;
-        cc.director.getCollisionManager().enabled = false;
         this.touchingNumber = 0;
         this.isDead = true;
         this._life = 0;
@@ -254,9 +253,6 @@ export default class CPlayer extends cc.Component {
     }
 
     collisionMushroomEnter(other, self) {
-        var colliders = this.getComponents(cc.PolygonCollider);
-        colliders[0].enabled = true;
-        colliders[1].enabled = false;
         var actionBy = cc.scaleBy(1, 5 / 3);
         this.node.runAction(actionBy);
         this._life = 2;

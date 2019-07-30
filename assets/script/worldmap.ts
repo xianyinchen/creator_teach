@@ -85,9 +85,7 @@ export default class CMap extends cc.Component {
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        cc.director.getCollisionManager().enabled = true;
-        cc.director.getCollisionManager().enabledDebugDraw = true;
-        cc.director.getCollisionManager().enabledDrawBoundingBox = true;
+
     }
 
     start() {
