@@ -201,6 +201,7 @@ export default class CPlayer extends cc.Component {
     }
 
     rabbitDieJump() {
+        cc.director.getCollisionManager().enabled = false;
         cc.audioEngine.play(this.dieAudio, false, 1);
         this.anim.play("player_die");
         this._speed.y = this.jumpSpeed;

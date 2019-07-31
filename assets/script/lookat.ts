@@ -42,21 +42,21 @@ export default class NewClass extends cc.Component {
     }
 
     update() {
-        if (this.isRun) {
-            //将一个点转换到世界空间坐标系。结果以 Vec2 为单位。
-            let pos = this.node.convertToWorldSpaceAR(cc.Vec2.ZERO);
-            // console.log('pos：'+pos);
-            let targertPos = this.target.convertToWorldSpaceAR(cc.Vec2.ZERO);
-            // console.log('targertPos：'+targertPos);
-            let dis = pos.sub(targertPos);
-            // console.log('dis：'+dis);
-            let dest = this.screenMiddle.add(dis);
-            // console.log('dest：'+dest);
-            dest.x = cc.misc.clampf(dest.x, this.minX, this.maxX);//限定dest.x的最大最小值。
-            dest.y = this.minY;
-            // dest.y = cc.clampf(dest.y, this.minY, this.maxY);
-            this.node.position = this.node.parent.convertToNodeSpaceAR(dest);
-        }
-
+        if (!this.isRun) 
+            return;
+            
+        //将一个点转换到世界空间坐标系。结果以 Vec2 为单位。
+        let pos = this.node.convertToWorldSpaceAR(cc.Vec2.ZERO);
+        // console.log('pos：'+pos);
+        let targertPos = this.target.convertToWorldSpaceAR(cc.Vec2.ZERO);
+        // console.log('targertPos：'+targertPos);
+        let dis = pos.sub(targertPos);
+        // console.log('dis：'+dis);
+        let dest = this.screenMiddle.add(dis);
+        // console.log('dest：'+dest);
+        dest.x = cc.misc.clampf(dest.x, this.minX, this.maxX);//限定dest.x的最大最小值。
+        dest.y = this.minY;
+        // dest.y = cc.clampf(dest.y, this.minY, this.maxY);
+        this.node.position = this.node.parent.convertToNodeSpaceAR(dest);
     }
 }

@@ -14,22 +14,21 @@ const {ccclass, property} = cc._decorator;
 export default class CWorld extends cc.Component {
 
     @property()
-    FallG_Num: number = 0;    
+    WorldFallG: number = 0;    
 
     @property() 
-    WalkG_Num: number = 0;
+    WorldWalkG: number = 0;
 
     static G: number = 0;    
     static WalkG: number = 0; 
     static GiveCoin: number = 0;
     static AddSpeed: number = 1;
-    static IsPress: boolean = false;
     
     // LIFE-CYCLE CALLBACKS:
 
     onLoad () {
-        CWorld.G = this.FallG_Num;    
-        CWorld.WalkG = this.WalkG_Num; 
+        CWorld.G = this.WorldFallG;    
+        CWorld.WalkG = this.WorldWalkG; 
     }
 
     start () {
