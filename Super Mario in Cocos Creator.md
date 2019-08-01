@@ -1,6 +1,6 @@
-## 横版游戏
+## 使用CocosCreator制作超级马里奥
 
-本教程演示如何灵活快速的使用 CocosCreator 来创作类似超级玛丽的横版游戏，这个教程可以帮助熟悉下面这些组件。
+本教程演示如何灵活快速的使用 CocosCreator 来制作超级马里奥这款经典游戏，这个教程主要目的是帮助大家熟悉下面组件的用法，横版游戏实现方法很多，这里不做讨论哈。
 
 [TileMap](https://docs.cocos.com/creator/manual/en/asset-workflow/tiledmap.html)
 
@@ -12,7 +12,7 @@
 
 [Atlas](https://docs.cocos.com/creator/manual/en/asset-workflow/atlas.html)
 
-该教程基于 Cocos Creator v2.x 版本，点击[下载](https://cocos2d-x.org/download)并安装。
+该教程基于 Cocos Creator v2.x 版本，点击[下载](https://cocos2d-x.org/download)并安装，内容参考来至[论坛](https://forum.cocos.com/t/creator/47112)。
 
 ## 开始我们的游戏制作
 

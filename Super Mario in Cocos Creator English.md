@@ -1,6 +1,6 @@
-# landscape game
+# Super Mario in Cocos Creator
 
-This tutorial demonstrates how to use CocosCreator to create a landscape game similar to Super Mario, and you will get familiar with the following components.
+This tutorial demonstrates how to use CocosCreator to design Super Mario classic game flexibly and quickly. The main purpose of this tutorial is to help you familiarize yourself with the usage of the following components.
 
 [TileMap](https://docs.cocos.com/creator/manual/en/asset-workflow/tiledmap.html)
 
