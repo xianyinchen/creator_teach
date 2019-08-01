@@ -17,10 +17,10 @@ export default class CWorld extends cc.Component {
     WorldFallG: number = 0;    
 
     @property() 
-    WorldWalkG: number = 0;
+    WorldWalkA: number = 0;
 
     static G: number = 0;    
-    static WalkG: number = 0; 
+    static WalkA: number = 0; 
     static GiveCoin: number = 0;
     static AddSpeed: number = 1;
     
@@ -28,7 +28,7 @@ export default class CWorld extends cc.Component {
 
     onLoad () {
         CWorld.G = this.WorldFallG;    
-        CWorld.WalkG = this.WorldWalkG; 
+        CWorld.WalkA = this.WorldWalkA; 
     }
 
     start () {

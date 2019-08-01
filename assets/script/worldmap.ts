@@ -101,7 +101,6 @@ export default class CMap extends cc.Component {
         var enemies = this.worldMap.getObjectGroup(this.enemyName);
         var waters = this.worldMap.getObjectGroup(this.waterLayerName);
         var finish = this.worldMap.getObjectGroup(this.finishName);
-        // var sni = this.worldMap.getObjectGroup(this.finishName);
         var snailBlocks = this.worldMap.getObjectGroup(this.snailBlockName);
         var finishPoint = finish.getObject('finishPoint');
     
@@ -124,7 +123,6 @@ export default class CMap extends cc.Component {
             snailBlockNode.addComponent(cc.BoxCollider);
             snailBlockNode.getComponent(cc.BoxCollider).size = cc.size(snailBlockNode.width, snailBlockNode.height);
             snailBlockNode.getComponent(cc.BoxCollider).offset = new cc.Vec2(snailBlockNode.width / 2, -snailBlockNode.height / 2);
-            // console.log('watersgNode.height: '+snailBlockNode.height);
             snailBlockNode.getComponent(cc.BoxCollider).tag = 9;
             this.node.addChild(snailBlockNode);
 
@@ -132,10 +130,8 @@ export default class CMap extends cc.Component {
         for (var i = 1; i < 8; i++) {
             var waterName = 'water' + i;
             var waterBlock = waters.getObject(waterName);
-            // var waterNode = new cc.Node();
             var waterNode = cc.instantiate(this.ColliderPreName);
             waterNode.group = 'water';
-            // waterNode.setAnchorPoint(0,0);
             waterNode.width = waterBlock.width;
             waterNode.height = waterBlock.height;
             waterNode.x = waterBlock.x;
@@ -158,7 +154,6 @@ export default class CMap extends cc.Component {
             enemy.x = enemyBlock.x;
             enemy.y = enemyBlock.y;
             this.node.addChild(enemy);
-            // console.log('enemy Name'+enemy._name);
 
         }
         for (var i = 1; i < 30; i++) {
@@ -166,7 +161,6 @@ export default class CMap extends cc.Component {
             var destroyable_block = destroyable_blocks.getObject(destroyable_blockName);
             var breakableWall = cc.instantiate(this.breakableWallPre);
             breakableWall.x = destroyable_block.x;
-            // breakableWall.height = destroyable_blockNode.height;
             breakableWall.y = destroyable_block.y;
             this.node.addChild(breakableWall);
         }
@@ -174,10 +168,8 @@ export default class CMap extends cc.Component {
             var bonus_blockName = 'bonus_block' + i;
             var bonus_block = bonus_blocks.getObject(bonus_blockName);
             var bonusWall: cc.Node = cc.instantiate(this.bonusWallPre);
-            // console.log('bonusWallPre Name: ' + bonusWall.name);
             bonusWall.zIndex = 99;
             bonusWall.x = bonus_block.x;
-            // bonusWall.height = bonus_block.height;
             bonusWall.y = bonus_block.y;
             if (bonus_block.name == 'bonus_block4') {
                 bonusWall.getComponent(cc.BoxCollider).tag = 7;
@@ -210,11 +202,5 @@ export default class CMap extends cc.Component {
             node.getComponent(cc.BoxCollider).tag = 5;
             this.node.addChild(node);
         }
-        var rabbit = startPoint.getObject('rabbit');
-
-        // console.log("rabbit: " + rabbit);
-        //this.worldPlayer.position = new cc.Vec2(rabbit.x, rabbit.y);
     }
-
-    // update (dt) {}
 }

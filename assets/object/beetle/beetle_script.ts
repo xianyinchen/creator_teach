@@ -22,7 +22,7 @@ export default class enemy extends cc.Component {
     @property
     canMove: boolean = true;
 
-    @property({type: cc.AudioClip})
+    @property({ type: cc.AudioClip })
     dieAudio: cc.AudioClip = null;
 
     anim: cc.Animation = null;

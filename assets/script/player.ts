@@ -535,16 +535,16 @@ export default class CPlayer extends cc.Component {
         }
         if (this._direction === 0) {
             if (this._speed.x > 0) {
-                this._speed.x -= CWorld.WalkG * dt;
+                this._speed.x -= CWorld.WalkA * dt;
                 if (this._speed.x <= 0) this._speed.x = 0;
             }
             else if (this._speed.x < 0) {
-                this._speed.x += CWorld.WalkG * dt;
+                this._speed.x += CWorld.WalkA * dt;
                 if (this._speed.x >= 0) this._speed.x = 0;
             }
         }
         else {
-            this._speed.x += (this._direction > 0 ? 1 : -1) * CWorld.WalkG * dt;
+            this._speed.x += (this._direction > 0 ? 1 : -1) * CWorld.WalkA * dt;
             if (Math.abs(this._speed.x) > this.maxSpeedV2.x) {
                 this._speed.x = this._speed.x > 0 ? this.maxSpeedV2.x : -this.maxSpeedV2.x;
             }
